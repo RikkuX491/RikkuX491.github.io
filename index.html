@@ -1,223 +1,273 @@
 <!DOCTYPE html>
-<html>
-    <head>
-	<title>Ricardo's website</title>
+<html ng-app="myPortfolioWebsiteApp" ng-controller="myPortfolioWebsiteCtrl" ng-init="bgColor='black'">
+  <head>
+    <title>Ricardo's website</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/BlackHat.PNG">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
-	<link rel="icon" href="https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/BlackHat.PNG">
-	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-
-	<style>
-	/* This is a comment */
-	    body{
-		background-color: black;
-		color: white;
-	    }
+    <style>
+      body{
+        color: white;
+      }
 	    nav{
-		margin: 0px;
-		height: 1vw;
-		position: fixed;
-		top: 0;
-		width: 92%;
-		background-color: black;
-	    }
+        margin: 0px;
+        height: 1vw;
+        position: fixed;
+        top: 0;
+        width: 92%;
+      }
 	    .navBarItem{
-		text-decoration: none;
-		color: white;
-	    }
+        text-decoration: none;
+        color: white;
+      }
 	    .navBarItem:hover{
-		color: red;
+        color: red;
 	    }
 	    .nav_ul{
-		list-style-type: none;
-		margin: 0px;
-		padding: 0px;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
 	    }
 	    .nav_li{
-		float: left;
-		margin: 0px;
-		padding: 0vw 0vw 0vw 3.6vw;
-		font-size: 1.7vw;
+        float: left;
+        margin: 0px;
+        padding: 0vw 0vw 0vw 3.6vw;
+        font-size: 1.7vw;
 	    }
 	    .sectionTitle{
-		font-size: 2.4vw;
-		margin: 0px;
-		padding: 0px;
+        font-size: 2.4vw;
+        margin: 0px;
+        padding: 0px;
 	    }
 	    .sectionTitle2{
-		font-size: 1.8vw;
-		margin: 0px;
-		padding: 0px;
-		color: grey;
+        font-size: 1.8vw;
+        margin: 0px;
+        padding: 0px;
+        color: grey;
 	    }
 	    .sectionContainerA{
-		margin-top: 50px;
-		padding: 0px;
-		height: 20vw;
-		width: 53vw;
+        margin-top: 50px;
+        padding: 0px;
+        height: 20vw;
+        width: 53vw;
 	    }
 	    .sectionContainerB{
-		margin: 0px;
-		padding: 0px;
-		height: 2vw;
-		width: 32vw;
+        margin: 0px;
+        padding: 0px;
+        height: 2vw;
+        width: 32vw;
 	    }
 	    .navChains{
-		padding: 0px;
-		border: 50px solid transparent;
-		-webkit-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Safari 3.1-5 */
-		-o-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Opera 11-12.1 */
-		border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round;
+        padding: 0px;
+        border: 50px solid transparent;
+        -webkit-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Safari 3.1-5 */
+        -o-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Opera 11-12.1 */
+        border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round;
 	    }
 	    .chains{
-		padding: 0px;
-		border: 100px solid transparent;
-		-webkit-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Safari 3.1-5 */
-		-o-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Opera 11-12.1 */
-		border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round;
+        padding: 0px;
+        border: 100px solid transparent;
+        -webkit-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Safari 3.1-5 */
+        -o-border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round; /* Opera 11-12.1 */
+        border-image: url(https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/Chains.PNG) 100 round;
 	    }
-	</style>
-    </head>
-    <body>
-	<nav class="navChains" style="font-family: 'Press Start 2P', cursive">
+      .gameTitle{
+        text-align: center;
+        color: white;
+      }
+      .gameTitle:hover{
+        color: red;
+      }
+	    footer{
+        padding-left: 1%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: left;
+	    }
+	  </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+  </head>
+  <body style="background-color:{{bgColor}}">
+    <nav class="navChains" style="background-color:{{bgColor}}; font-family: 'Press Start 2P', cursive">
 	    <ul class="nav_ul">
-		<li class="nav_li"><a href="#" class="navBarItem">Home</a></li>
-		<li class="nav_li"><a href="#AboutMe" class="navBarItem">About Me</a></li>
-		<li class="nav_li"><a href="#Skills" class="navBarItem">Skills</a></li>
-		<li class="nav_li"><a href="#Projects" class="navBarItem">Projects</a></li>
-		<li class="nav_li"><a href="#Games" class="navBarItem">Games</a></li>
-		<li class="nav_li"><a href="#Contact" class="navBarItem">Contact</a></li>
+        <li class="nav_li"><a href="#" class="navBarItem">Home</a></li>
+		    <li class="nav_li"><a href="#AboutMe" class="navBarItem">About Me</a></li>
+		    <li class="nav_li"><a href="#Skills" class="navBarItem">Skills</a></li>
+		    <li class="nav_li"><a href="#Projects" class="navBarItem">Projects</a></li>
+        <li class="nav_li"><a href="#Games" class="navBarItem">Games</a></li>
+		    <li class="nav_li"><a href="#Contact" class="navBarItem">Contact</a></li>
 	    </ul>
-	</nav>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<center>
-	    <div class="chains sectionContainerA" style="font-family: 'Press Start 2P', cursive">
-		<h1 class="sectionTitle">Hello World!<br>I am Ricardo.<br>I'm a web developer, game developer, and mobile app developer.</h1>
-		<h2 class="sectionTitle2">Front End Developer /<br>Unity Game Developer /<br>Android developer</h2>
+    </nav>
+    <br><br><br><br>
+	  <center>
+      <div class="chains sectionContainerA" style="font-family: 'Press Start 2P', cursive">
+        <h1 class="sectionTitle">Hello World!<br>I am Ricardo.<br>I'm a web developer, game developer, and mobile app developer.</h1>
+		    <h2 class="sectionTitle2">Front End Developer /<br>Unity Game Developer /<br>Android developer</h2>
 	    </div>
-	</center>
-	<br><br><br><br><br><br>
+    </center>
+	  <br><br><br><br><br><br>
 
-	<br id="AboutMe">
-	<h1></h1>
-	<br><br><br><br><br><br>
-	<center>
-	    <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
-		<h1 class="sectionTitle">About Me</h1>
+    <br id="AboutMe">
+    <h1></h1>
+    <br><br><br><br><br><br><br>
+    <center>
+      <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
+        <h1 class="sectionTitle">About Me</h1>
 	    </div>
-	</center>
+    </center>
+    <h2>My name is Ricardo, but you can call me Rick.</h2>
+	  <h2>I love to play video games. Two of my favorite video games are Pokemon and Final Fantasy.</h2>
 
-	<h2>My name is Ricardo, but you can call me Rick.</h2>
-	<h2>I love to play video games. Two of my favorite video games are Pokemon and Final Fantasy.</h2>
-	
 
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-	<br id="Skills">
-	<h1></h1>
-	<br><br><br><br><br><br>
-	<center>
-	    <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
-		<h1 class="sectionTitle">Skills</h1>
+    <br id="Skills">
+    <h1></h1>
+    <br><br><br><br><br><br><br>
+    <center>
+      <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
+        <h1 class="sectionTitle">Skills</h1>
 	    </div>
-	</center>
+    </center>
 
-	<h2>Here is a list of my skills:</h2>
-	    
-	<h3>I) Coding and Programming Languages</h3>
-	<ul>
-	    <li>HTML</li>
+    <h2>Here is a list of my skills:</h2>
+
+    <h3>I) Coding and Programming Languages</h3>
+    <ul>
+      <li>HTML</li>
 	    <li>CSS</li>
 	    <li>Javascript</li>
 	    <li>PHP</li>
 	    <li>C#</li>
 	    <li>Java</li>
-	    <li>C++</li>
 	    <li>Ruby</li>
-	    <li>Python</li>
-	</ul>
-	    
-	<h3>II) Software and technologies</h3>
-	<ul>
-	    <li>Git</li>
+    </ul>
+
+    <h3>II) Software and technologies</h3>
+    <ul>
+      <li>Git</li>
 	    <li>GitHub</li>
 	    <li>WordPress</li>
 	    <li>Unity</li>
 	    <li>Oculus Rift</li>
 	    <li>Android Studio</li>
 	    <li>Sonic Pi</li>
-	</ul>
-	    
-	<h3>III) Foreign languages</h3>
-	<ul>
-	    <li>Spanish</li>
+    </ul>
+
+    <h3>III) Foreign languages</h3>
+    <ul>
+      <li>Spanish</li>
 	    <li>Japanese</li>
-	</ul>
+    </ul>
 
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	
-	<br id="Projects">
-	<h1></h1>
-	<br><br><br><br><br><br>
-	<center>
-	    <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
-		<h1 class="sectionTitle">Projects</h1>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <br id="Projects">
+    <h1></h1>
+    <br><br><br><br><br><br><br>
+    <center>
+      <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
+        <h1 class="sectionTitle">Projects</h1>
 	    </div>
-	</center>
+    </center>
 
-	<h2>Here are some projects that I've created:</h2>
-	<ul>
-	    <li>Project 1</li>
-	    <li>Project 2</li>
-	    <li>Project 3</li>
-	</ul>
+    <h2>Here are some projects that I've created:</h2>
+    <ul>
+      <li>ShayCPA website (A website built with WordPress): <a href="http://qclead.com/shaycpa/" target="_blank">http://qclead.com/shaycpa/</a></li>
+	    <li>Super Mario Bros. Overworld Theme song (A song created with Ruby programming code for the Sonic Pi live coding environment): <a href="https://raw.githubusercontent.com/RikkuX491/Sonic-Pi/master/Super_Mario_Bros_Overworld_Theme.rb" target="_blank">https://raw.githubusercontent.com/RikkuX491/Sonic-Pi/master/Super_Mario_Bros_Overworld_Theme.rb</a></li>
+    </ul>
 
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-	<br id="Games">
-	<h1></h1>
-	<br><br><br><br><br><br>
-	<center>
-	    <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
-		<h1 class="sectionTitle">Games</h1>
+	  <br id="Games">
+	  <h1></h1>
+	  <br><br><br><br><br><br><br>
+	  <center>
+      <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
+        <h1 class="sectionTitle">Games</h1>
 	    </div>
-	</center>
+    </center>
 
-	<h2>Here are some games that I've created:</h2>
-	<ul>
-	    <li>Game 1</li>
-	    <li>Game 2</li>
-	    <li>Game 3</li>
-	</ul>
+    <h2>Here are some games that I've created:</h2>
+    <div style="float:left">
+      <a href="FlappyBirdGame.html" style="text-decoration:none"><h2 class="gameTitle">Flappy Bird</h2></a>
+      <a href="FlappyBirdGame.html"><canvas id="canvas" width="288" height="512"></canvas></a>
+      <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
 
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        // Load the Flappy Bird game images
+        var flappyBird = new Image();
+        var background = new Image();
+        var ground = new Image();
 
-	<br id="Contact">
-	<h1></h1>
-	<br><br><br><br><br><br>
-	<center>
-	    <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
-		<h1 class="sectionTitle">Contact</h1>
+        var date = new Date();
+
+        // Loads the Flappy Bird sprite.
+        flappyBird.src = "https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/images/FlappyBird_WingUp.png";
+
+        // The background is determined by the time of day.
+        // If it's between 8:00 pm and 4:00 am, the night background will display.
+        // Else, the day background will display.
+        if(date.getHours() <= 4 || date.getHours() >= 20){
+          background.src = "https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/images/Background_Night.png";
+        }
+        else background.src = "https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/images/Background_Day.png";
+
+        // Loads the ground image.
+        ground.src = "https://raw.githubusercontent.com/RikkuX491/RikkuX491.github.io/master/images/Ground.png";
+
+        function draw(){
+          context.drawImage(background, 0, 0);
+          context.drawImage(flappyBird, 125, 200);
+          context.drawImage(ground, 0, canvas.height - ground.height);
+          requestAnimationFrame(draw);
+        }
+        draw();
+      </script>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+	  <br id="Contact">
+	  <h1></h1>
+	  <br><br><br><br><br><br><br>
+	  <center>
+      <div class="chains sectionContainerB" style="font-family: 'Press Start 2P', cursive; padding: 0px; margin: 0px">
+        <h1 class="sectionTitle">Contact</h1>
 	    </div>
-	</center>
+    </center>
+    <h2>Here is my contact information:</h2>
+    <h3>"Insert contact information here"</h3>
 
-	<h2>Here is my contact information:</h2>
-    	<h3>"Insert contact information here"</h3>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </body>
+    <footer style="background-color:black">
+      <p>Pick a color to change the background color: <select ng-model="bgColor" ng-options="x for x in colors"></select></p>
+    </footer>
+    <script>
+      var myPortfolioWebsiteApp = angular.module('myPortfolioWebsiteApp', []);
+      myPortfolioWebsiteApp.controller('myPortfolioWebsiteCtrl', function($scope){
+        $scope.colors = ["black", "blue", "green", "red"];
+      });
+    </script>
+  </body>
 </html>
