@@ -85,6 +85,7 @@ function moveUp(){
       // Otherwise, if the game has begun, Flappy Bird
       // will flap its wings and fly up.
       if(startGame == true){
+        gravity = 2.0;
         fbY -= 33;
         flySound.play();
       }
@@ -149,6 +150,7 @@ function draw(){
     context.drawImage(flappyBird,fbX,fbY);
 
     fbY += gravity;
+    if(startGame && !gameOver) gravity += 0.1;
 
     context.fillStyle = "#000";
     context.font = "20px Verdana";
