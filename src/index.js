@@ -1,14 +1,3 @@
-// Adds an img element to a skills div
-function addImgToSkillsDiv(dataObject, skillsDiv){
-  const imgElement = document.createElement('img')
-  imgElement.src = dataObject.src
-  imgElement.alt = dataObject.alt
-  imgElement.loading = "lazy"
-  imgElement.className = "icon icon-card"
-  skillsDiv.appendChild(imgElement)
-}
-
-
 // scroll to top functionality
 const scrollUp = document.querySelector("#scroll-up");
 
@@ -43,6 +32,20 @@ navLink.forEach((link) =>
   })
 );
 
+
+/* 
+ *  Skills section code
+ */
+
+// Adds an img element to a skills div
+function addImgToSkillsDiv(dataObject, skillsDiv){
+  const imgElement = document.createElement('img')
+  imgElement.src = dataObject.src
+  imgElement.alt = dataObject.alt
+  imgElement.loading = "lazy"
+  imgElement.className = "icon icon-card"
+  skillsDiv.appendChild(imgElement)
+}
 
 // Manage data for the first set of images to be added to the Skills section
 const firstSetImgDataObjects = [
@@ -109,4 +112,54 @@ secondSetImgDataObjects.forEach(dataObject => {
 // Add the third set of images to the Skills section
 thirdSetImgDataObjects.forEach(dataObject => {
   addImgToSkillsDiv(dataObject, thirdSetSkillsDiv)
+})
+
+
+/* 
+ *  Projects Section code
+ */
+
+// Manage data for projects to be added to the Projects section
+const projects = [
+  {
+    imgSrc: "assets/images/project-1-how-food-should-be.png",
+    imgAlt: "How Food Should Be",
+    title: "How Food Should Be",
+    details: "This is a webpage that displays images of the most mouth-watering foods imaginable. When a food image is clicked, the details for the food will be displayed in the section below the images including an enlarged image of the food, the name of the food, a description of the food, the name of the restaurant where the food came from, the location of the restaurant, a clickable link that takes you to the Google Maps location for the restaurant, and a clickable link that takes you to the Yelp page for the restaurant.",
+    link: "https://rikkux491.github.io/how-food-should-be"
+  }
+]
+
+const projectsContainerDivElement = document.querySelector(".projects-container")
+
+// Add the projects to the Projects section
+projects.forEach(project => {
+  const projectContainerCardDivElement = document.createElement("div")
+  projectContainerCardDivElement.className = "project-container project-card"
+
+  const imgElement = document.createElement("img")
+  imgElement.src = project.imgSrc
+  imgElement.alt = project.imgAlt
+  imgElement.loading = "lazy"
+  imgElement.className = "project-pic"
+  projectContainerCardDivElement.appendChild(imgElement)
+
+  const h3Element = document.createElement("h3")
+  h3Element.className = "project-title"
+  h3Element.textContent = project.title
+  projectContainerCardDivElement.appendChild(h3Element)
+
+  const pElement = document.createElement("p")
+  pElement.className = "project-details"
+  pElement.textContent = project.details
+  projectContainerCardDivElement.appendChild(pElement)
+
+  const aElement = document.createElement("a")
+  aElement.href = project.link
+  aElement.target = "_blank"
+  aElement.className = "project-link"
+  aElement.textContent = "Check it Out"
+  projectContainerCardDivElement.appendChild(aElement)
+
+  projectsContainerDivElement.appendChild(projectContainerCardDivElement)
 })
