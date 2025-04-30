@@ -163,3 +163,40 @@ projects.forEach(project => {
 
   projectsContainerDivElement.appendChild(projectContainerCardDivElement)
 })
+
+
+/* 
+ *  Social accounts section
+ */
+
+// Manage data for social icons to be added to the Social accounts section
+const socials = [
+  {
+    link: "https://www.linkedin.com/in/ricardo-guerra-463635161",
+    imgSrc: "assets/icons/linkedin-logo.png",
+    imgAlt: "LinkedIn"
+  },
+  {
+    link: "https://github.com/RikkuX491",
+    imgSrc: "assets/icons/github-logo.png",
+    imgAlt: "Github"
+  }
+]
+
+const socialsDivElement = document.querySelector(".socials")
+
+// Add the social links and icons to the Social accounts section
+socials.forEach(social => {
+  const aElement = document.createElement("a")
+  aElement.href = social.link
+  aElement.target = "_blank"
+  
+  const imgElement = document.createElement("img")
+  imgElement.src = social.imgSrc
+  imgElement.alt = social.imgAlt
+  imgElement.loading = "lazy"
+  imgElement.className = "socicon"
+  aElement.appendChild(imgElement)
+
+  socialsDivElement.appendChild(aElement)
+})
